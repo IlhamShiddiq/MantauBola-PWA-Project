@@ -3,6 +3,15 @@
     .banner-page {
         height: 340px;
         padding-top: 20px;
+        background-color: purple;
+        border-bottom-right-radius: 40px;
+    }
+    .swiper-container {
+        width: 100%;
+    }
+    .sub-banner {
+        padding: 0;
+        padding-top: 30px;
     }
     .img-nobar img {
         bottom: 70px; right: -20px;
@@ -17,10 +26,6 @@
     }
     .menu-desk {
         display: none;
-    }
-    .banner-page {
-        background-color: purple;
-        border-bottom-right-radius: 40px;
     }
 }
 

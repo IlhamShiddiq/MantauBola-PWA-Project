@@ -1,4 +1,5 @@
-var swiper = new Swiper('.swiper-container', {
+function swiperOn() {
+  var swiper = new Swiper('.swiper-container', {
     slidesPerView: 4,
     spaceBetween: 30,
     centeredSlides: true,
@@ -18,7 +19,7 @@ var swiper = new Swiper('.swiper-container', {
         spaceBetween: 20,
       },
       768: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         spaceBetween: 40,
       },
       1024: {
@@ -26,4 +27,5 @@ var swiper = new Swiper('.swiper-container', {
         spaceBetween: 50,
       },
     }
-});
+  });
+}

@@ -57,11 +57,13 @@ document.addEventListener("DOMContentLoaded", function() {
             content.innerHTML = xhttp.responseText;
 
             if(page === "ligue-1") {
-              getDataLigue1();
+              getData(2015);
             } else if(page === "primera-division") {
-              getDataPrimeraDivision();
-            } else {
-              getDataFIFA();
+              getData(2014);
+            } else if(page === "seriea") {
+              getData(2019);
+            } else if(page === "home") {
+              swiperOn()
             }
 
           } else if (this.status == 404) {

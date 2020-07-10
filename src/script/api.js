@@ -19,9 +19,9 @@ function error(error) {
 
 
 // Ligue 1
-function getDataLigue1() {
+function getData(id) {
 
-    fetch(base_url + "v2/competitions/2015/", {
+    fetch(base_url + `v2/competitions/${id}/`, {
             headers: {
                 "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
             },
@@ -30,15 +30,15 @@ function getDataLigue1() {
         .then(json)
         .then(function(data) {
         console.log(data);
-            isiKonten1(data);
-            getStandingsLigue1()
+            isiKonten(data);
+            getStandings(id)
         })
         .catch(error);
 }
 
-function getStandingsLigue1() {
+function getStandings(id) {
 
-    fetch(base_url + "v2/competitions/2015/standings/", {
+    fetch(base_url + `v2/competitions/${id}/standings/`, {
             headers: {
                 "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
             },
@@ -48,7 +48,7 @@ function getStandingsLigue1() {
         .then(function(data) {
 
           // Showing Total
-          const t_st = document.getElementById("ligue-1-t-st");
+          const t_st = document.getElementById("stTotal");
           t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
 
         var listStand = "";
@@ -88,14 +88,14 @@ function getStandingsLigue1() {
         .catch(error);
 }
 
-function isiKonten1(data) {
+function isiKonten(data) {
     const fromDate = new Date(data.currentSeason.startDate);
     const endDate = new Date(data.currentSeason.endDate);
     
-    const name = document.getElementById("name-1");
-    const from = document.getElementById("from-1");
-    const end = document.getElementById("end-1");
-    const area = document.getElementById("area-1");
+    const name = document.getElementById("name");
+    const from = document.getElementById("from");
+    const end = document.getElementById("end");
+    const area = document.getElementById("area");
 
     name.innerHTML = data.name;
     area.innerHTML = data.area.name;
@@ -103,174 +103,174 @@ function isiKonten1(data) {
     end.innerHTML = "<span>End</span> " + endDate.toDateString();
 }
 
-// Primera Division
-function getDataPrimeraDivision() {
+// // Primera Division
+// function getDataPrimeraDivision() {
 
-  fetch(base_url + "v2/competitions/2014/", {
-          headers: {
-              "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-          },
-      })
-      .then(status)
-      .then(json)
-      .then(function(data) {
-      var articlesHTML = "";
-      console.log(data);
-          isiKonten2(data);
-          getStandingsPrimeraDivision()
-      })
-      .catch(error);
-}
+//   fetch(base_url + "v2/competitions/2014/", {
+//           headers: {
+//               "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
+//           },
+//       })
+//       .then(status)
+//       .then(json)
+//       .then(function(data) {
+//       var articlesHTML = "";
+//       console.log(data);
+//           isiKonten2(data);
+//           getStandingsPrimeraDivision()
+//       })
+//       .catch(error);
+// }
 
-function getStandingsPrimeraDivision() {
+// function getStandingsPrimeraDivision() {
 
-  fetch(base_url + "v2/competitions/2014/standings/", {
-          headers: {
-              "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-          },
-      })
-      .then(status)
-      .then(json)
-      .then(function(data) {
+//   fetch(base_url + "v2/competitions/2014/standings/", {
+//           headers: {
+//               "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
+//           },
+//       })
+//       .then(status)
+//       .then(json)
+//       .then(function(data) {
 
-        // Showing Total
-        const t_st = document.getElementById("pd-t-st");
-        t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
+//         // Showing Total
+//         const t_st = document.getElementById("pd-t-st");
+//         t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
 
-      var listStand = "";
-      console.log(data.standings[0].table);
-      data.standings[0].table.forEach(function(data) {
-        listStand += `
-                <a href="#" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
-                  <div class="card-sch left-align">
-                        <img src="${data.team.crestUrl}" height="70" width="80">
-                      <div class="name-stand white-color">
-                          ${data.position}. ${data.team.name}
-                          <div class="points center-align">
-                              ${data.points} Points
-                          </div>
-                      </div>
+//       var listStand = "";
+//       console.log(data.standings[0].table);
+//       data.standings[0].table.forEach(function(data) {
+//         listStand += `
+//                 <a href="#" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
+//                   <div class="card-sch left-align">
+//                         <img src="${data.team.crestUrl}" height="70" width="80">
+//                       <div class="name-stand white-color">
+//                           ${data.position}. ${data.team.name}
+//                           <div class="points center-align">
+//                               ${data.points} Points
+//                           </div>
+//                       </div>
                       
-                      <div class="info right-align">   
-                          <div class="result win d-inline center-align">
-                              ${data.won} Won
-                          </div>
-                          <div class="result lose d-inline center-align">
-                              ${data.lost} Lost
-                          </div>
-                          <div class="result draw d-inline center-align">
-                              ${data.draw} Draw
-                          </div>
-                      </div>
-                  </div>
-              </a>
-              `;
-      });
+//                       <div class="info right-align">   
+//                           <div class="result win d-inline center-align">
+//                               ${data.won} Won
+//                           </div>
+//                           <div class="result lose d-inline center-align">
+//                               ${data.lost} Lost
+//                           </div>
+//                           <div class="result draw d-inline center-align">
+//                               ${data.draw} Draw
+//                           </div>
+//                       </div>
+//                   </div>
+//               </a>
+//               `;
+//       });
       
-      document.getElementById("st").innerHTML = "Standings";
-      document.getElementById("standings-2").innerHTML = listStand;
+//       document.getElementById("st").innerHTML = "Standings";
+//       document.getElementById("standings-2").innerHTML = listStand;
 
-      })
-      .catch(error);
-}
+//       })
+//       .catch(error);
+// }
 
-function isiKonten2(data) {
-  const name = document.querySelector(".name-2");
-  const from = document.querySelector(".from-2");
-  const end = document.querySelector(".end-2");
-  const area = document.querySelector(".area-2");
+// function isiKonten2(data) {
+//   const name = document.querySelector(".name-2");
+//   const from = document.querySelector(".from-2");
+//   const end = document.querySelector(".end-2");
+//   const area = document.querySelector(".area-2");
 
-  const fromDate = new Date(data.currentSeason.startDate);
-  const endDate = new Date(data.currentSeason.endDate);
+//   const fromDate = new Date(data.currentSeason.startDate);
+//   const endDate = new Date(data.currentSeason.endDate);
 
-  name.innerHTML = data.name;
-  area.innerHTML = data.area.name;
-  from.innerHTML = "<span>Start</span> " + fromDate.toDateString() + ", &nbsp;";
-  end.innerHTML = "<span>End</span> " + endDate.toDateString();
-}
+//   name.innerHTML = data.name;
+//   area.innerHTML = data.area.name;
+//   from.innerHTML = "<span>Start</span> " + fromDate.toDateString() + ", &nbsp;";
+//   end.innerHTML = "<span>End</span> " + endDate.toDateString();
+// }
 
-// FIFA
-function getDataFIFA() {
+// // FIFA
+// function getDataFIFA() {
 
-  fetch(base_url + "v2/competitions/2019/", {
-          headers: {
-              "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-          },
-      })
-      .then(status)
-      .then(json)
-      .then(function(data) {
-      var articlesHTML = "";
-      console.log(data);
-          isiKonten3(data);
-          getStandingsFIFA()
-      })
-      .catch(error);
-}
+//   fetch(base_url + "v2/competitions/2019/", {
+//           headers: {
+//               "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
+//           },
+//       })
+//       .then(status)
+//       .then(json)
+//       .then(function(data) {
+//       var articlesHTML = "";
+//       console.log(data);
+//           isiKonten3(data);
+//           getStandingsFIFA()
+//       })
+//       .catch(error);
+// }
 
-function getStandingsFIFA() {
+// function getStandingsFIFA() {
 
-  fetch(base_url + "v2/competitions/2019/standings/", {
-          headers: {
-              "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-          },
-      })
-      .then(status)
-      .then(json)
-      .then(function(data) {
+//   fetch(base_url + "v2/competitions/2019/standings/", {
+//           headers: {
+//               "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
+//           },
+//       })
+//       .then(status)
+//       .then(json)
+//       .then(function(data) {
 
-        // Showing Total
-        const t_st = document.getElementById("serie-a-t-st");
-        t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
+//         // Showing Total
+//         const t_st = document.getElementById("serie-a-t-st");
+//         t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
 
-      var listStand = "";
-      console.log(data.standings[0].table);
-      data.standings[0].table.forEach(function(data) {
-        listStand += `
-                <a href="#" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
-                  <div class="card-sch left-align">
-                        <img src="${data.team.crestUrl}" height="70" width="80" alt="${data.team.crestUrl}">
-                      <div class="name-stand white-color">
-                          ${data.position}. ${data.team.name}
-                          <div class="points center-align">
-                              ${data.points} Points
-                          </div>
-                      </div>
+//       var listStand = "";
+//       console.log(data.standings[0].table);
+//       data.standings[0].table.forEach(function(data) {
+//         listStand += `
+//                 <a href="#" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
+//                   <div class="card-sch left-align">
+//                         <img src="${data.team.crestUrl}" height="70" width="80" alt="${data.team.crestUrl}">
+//                       <div class="name-stand white-color">
+//                           ${data.position}. ${data.team.name}
+//                           <div class="points center-align">
+//                               ${data.points} Points
+//                           </div>
+//                       </div>
                       
-                      <div class="info right-align">   
-                          <div class="result win d-inline center-align">
-                              ${data.won} Won
-                          </div>
-                          <div class="result lose d-inline center-align">
-                              ${data.lost} Lost
-                          </div>
-                          <div class="result draw d-inline center-align">
-                              ${data.draw} Draw
-                          </div>
-                      </div>
-                  </div>
-              </a>
-              `;
-      });
+//                       <div class="info right-align">   
+//                           <div class="result win d-inline center-align">
+//                               ${data.won} Won
+//                           </div>
+//                           <div class="result lose d-inline center-align">
+//                               ${data.lost} Lost
+//                           </div>
+//                           <div class="result draw d-inline center-align">
+//                               ${data.draw} Draw
+//                           </div>
+//                       </div>
+//                   </div>
+//               </a>
+//               `;
+//       });
       
-      document.getElementById("st").innerHTML = "Standings";
-      document.getElementById("standings-3").innerHTML = listStand;
+//       document.getElementById("st").innerHTML = "Standings";
+//       document.getElementById("standings-3").innerHTML = listStand;
 
-      })
-      .catch(error);
-}
+//       })
+//       .catch(error);
+// }
 
-function isiKonten3(data) {
-  const name = document.querySelector(".name-3");
-  const from = document.querySelector(".from-3");
-  const end = document.querySelector(".end-3");
-  const area = document.querySelector(".area-3");
+// function isiKonten3(data) {
+//   const name = document.querySelector(".name-3");
+//   const from = document.querySelector(".from-3");
+//   const end = document.querySelector(".end-3");
+//   const area = document.querySelector(".area-3");
 
-  const fromDate = new Date(data.currentSeason.startDate);
-  const endDate = new Date(data.currentSeason.endDate);
+//   const fromDate = new Date(data.currentSeason.startDate);
+//   const endDate = new Date(data.currentSeason.endDate);
 
-  name.innerHTML = data.name;
-  area.innerHTML = data.area.name;
-  from.innerHTML = "<span>Start</span> " + fromDate.toDateString() + ", &nbsp;";
-  end.innerHTML = "<span>End</span> " + endDate.toDateString();
-}
+//   name.innerHTML = data.name;
+//   area.innerHTML = data.area.name;
+//   from.innerHTML = "<span>Start</span> " + fromDate.toDateString() + ", &nbsp;";
+//   end.innerHTML = "<span>End</span> " + endDate.toDateString();
+// }
