@@ -8,6 +8,9 @@
         width: 100%;
         text-align: center;
     }
+    .sub-banner .from, .sub-banner .end {
+        font-size: 13px;
+    }
     .menu-desk {
         display: none;
     }
@@ -26,6 +29,9 @@
         bottom: 30px;
         width: 100%;
         text-align: center;
+    }
+    .sub-banner .from, .sub-banner .end {
+        font-size: 14px;
     }
     .swiper-container {
         width: 60%;
