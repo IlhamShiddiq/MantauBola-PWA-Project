@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MantauBola | Welcome Guest</title>
+
+    <!-- Materialie -->
+    <link rel="stylesheet" href="src/style/materialize.min.css">
+
+    <link rel="stylesheet" href="src/style/style.css">
+    <link rel="stylesheet" href="src/style/responsive.css">
+    <link rel="stylesheet" href="src/style/font-awesome.css">
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="d-purple" role="navigation">
+        <div class="nav-wrapper container">
+          <a href="#" class="brand-logo" id="logo-container">MantauBola</a>
+          <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+          
+          <ul class="topnav right hide-on-med-and-down"></ul>
+          <ul class="sidenav" id="nav-mobile"></ul>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <!-- Content -->
+    <div id="body-content"></div>
+    <!-- Akhir Content -->
+
+    <script type="text/javascript" src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js"></script>
+    <script src="src/script/materialize.min.js"></script>
+    <script src="src/script/api.js"></script>
+    <script src="src/script/nav.js"></script>
+    <script src="src/script/font-awesome.js"></script>
+    <script>
+        // REGISTER SERVICE WORKER
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function() {
+            navigator.serviceWorker
+              .register("/sw.js")
+              .then(function() {
+                console.log("work!");
+              })
+              .catch(function() {
+                console.log("not work!");
+              });
+          });
+        } else {
+          console.log("ServiceWorker belum didukung browser ini.");
+        }
+
+        // Call
+        document.addEventListener("DOMContentLoaded", function() {
+            getDataLigue1();
+            getStandingsLigue1()
+        });
+      </script>
+    
+</body>
+</html>

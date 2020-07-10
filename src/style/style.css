@@ -1,0 +1,199 @@
+/* Utility */
+.white-color {
+    color: white;
+}
+.banner-page {
+    padding-top: 52px;
+    width: 100%;
+    height: 365px;
+    background-color: rgb(255, 255, 255);
+}
+.sub-banner {
+    width: 80%;
+    height: 265px;
+    background-color: purple;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.container-banner {
+    width: 100%;
+    height: 265px;
+    position: relative;
+}
+.sub-banner .name {
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+.sub-banner .from, .sub-banner .end {
+    font-size: 15px;
+    line-height: 18px;
+    display: inline;
+}
+.sub-banner .from span, .sub-banner .end span {
+    font-weight: 500;
+}
+.sub-banner .area {
+    width: 80px;
+    color: purple;
+    background-color: white;
+    padding: 1px;
+    border-radius: 100px;
+}
+.date {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+}
+.img-nobar img {
+    position: absolute;
+    bottom: 50px; right: 20px;
+}
+.d-inline {
+    display: inline-block;
+}
+/* Akhir Utility */
+
+/* Navigasi */
+nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 3;
+    box-shadow: 0 0 0 0 black !important;
+}
+nav.d-purple {
+    background-color: purple;
+}
+a.brand-logo {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.sidenav-overlay {
+    z-index: 2;
+}
+.circle a {
+    background-color: rgb(153, 35, 143);
+    font-size: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    margin-top: -5px;
+    margin-left: 20px;
+}
+/* Navigasi */
+
+/* Ligue 1 */
+.schedule {
+    width: 100%;
+    padding: 20px;
+}
+h3.title {
+    margin: 0;
+    margin: 0 0 10px 0;
+    color: rgb(88, 88, 88);
+    font-size: 26px;
+    font-weight: 500;
+}
+a.sch-detail {
+    margin-top: 13px;
+    background-color: purple;
+    border-radius: 20px;
+}
+.card-sch {
+    width: 100%;
+    padding: 10px;
+    position: relative;
+}
+.name-stand {
+    position: absolute;
+    top: 25px;
+    left: 120px;
+    font-size: 17px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.name-stand .points {
+    width: 90px;
+    font-size: 14px;
+    margin-top: 5px;
+    color: purple;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.info {
+    position: absolute;
+    bottom: 10px; right: 0;
+}
+.result {
+    width: 70px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+.win {
+    background-color: rgb(143, 223, 160);
+}
+.lose {
+    background-color: rgb(223, 143, 143);
+}
+.draw {
+    background-color: rgb(201, 201, 201);
+}
+/* Akhir Ligue 1 */
+
+/* TIm */
+a.tim-detail {
+    margin-top: 15px;
+    border-radius: 30px;
+    border-bottom: 2px solid rgb(133, 133, 133);
+}
+.card-tim {
+    width: 100%;
+    height: 125px;
+    border-radius: 30px;
+}
+/* Akhir Tim */
+
+/* Favorit */
+.list-fav {
+    padding-top: 100px;
+}
+/* Akhir Favorit */
+
+
+
+
+/* Floating Button */
+.floating-button {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    width: 50px;
+    height: 60px;
+    background-color: rgb(216, 23, 23);
+    color: white;
+    font-size: 30px;
+    padding-top: 5px;
+    transition:all 300ms ease-in-out;
+   -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.floating-button:hover {
+    background-color: rgb(138, 6, 6);
+    transition:all 300ms ease-in-out;
+   -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+/* Akhir Floating Button */
