@@ -63,7 +63,6 @@ nav {
     top: 0; left: 0;
     width: 100%;
     z-index: 3;
-    box-shadow: 0 0 0 0 black !important;
 }
 nav.d-purple {
     background-color: purple;
@@ -98,6 +97,11 @@ h3.title {
     color: rgb(88, 88, 88);
     font-size: 26px;
     font-weight: 500;
+}
+h6.stand-total {
+    font-size: 13px;
+    margin: 0;
+    color: rgb(88, 88, 88);
 }
 a.sch-detail {
     margin-top: 13px;

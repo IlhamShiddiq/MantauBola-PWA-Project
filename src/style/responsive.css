@@ -1,5 +1,13 @@
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    .img-nobar img {
+        bottom: 70px; right: -20px;
+    }
+    .date {
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+    }
     .menu-desk {
         display: none;
     }
@@ -11,6 +19,14 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) { 
+    .img-nobar img {
+        bottom: 80px; right: 0px;
+    }
+    .date {
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
     .swiper-container {
         width: 60%;
     }
@@ -21,6 +37,14 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) { 
+    .img-nobar img {
+        bottom: 90px; right: 20px;
+    }
+    .date {
+        bottom: 35px;
+        width: 100%;
+        text-align: center;
+    }
     .menu-desk {
         display: none;
     }
