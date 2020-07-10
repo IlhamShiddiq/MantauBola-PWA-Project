@@ -6,6 +6,7 @@ var urlsToCache = [
   "/detail-team.html",
   "/manifest.json",
   "/pages/favorit.html",
+  "/pages/home.html",
   "/pages/ligue-1.html",
   "/pages/primera-division.html",
   "/pages/seriea.html",
@@ -14,10 +15,12 @@ var urlsToCache = [
   "/src/script/font-awesome.js",
   "/src/script/materialize.min.js",
   "/src/script/nav.js",
+  "/src/script/swiper.js",
   "/src/style/font-awesome.css",
   "/src/style/materialize.min.css",
   "/src/style/responsive.css",
   "/src/style/style.css",
+  "/src/style/swiper.css"
 ];
  
 self.addEventListener("install", function(event) {

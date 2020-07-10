@@ -14,7 +14,7 @@ function json(response) {
 }
 
 function error(error) {
-  console.log("Error : " + error);
+  console.log(error);
 }
 
 
@@ -29,7 +29,6 @@ function getDataLigue1() {
         .then(status)
         .then(json)
         .then(function(data) {
-        var articlesHTML = "";
         console.log(data);
             isiKonten1(data);
             getStandingsLigue1()
