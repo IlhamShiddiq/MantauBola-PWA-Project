@@ -14,7 +14,7 @@ function json(response) {
 }
 
 function error(error) {
-  console.log(error);
+  console.log("Error : " + error);
 }
 
 
@@ -81,6 +81,7 @@ function getStandingsLigue1() {
                 `;
         });
         
+        document.getElementById("st").innerHTML = "Standings";
         document.getElementById("standings").innerHTML = listStand;
   
         })
@@ -88,13 +89,13 @@ function getStandingsLigue1() {
 }
 
 function isiKonten1(data) {
-    const name = document.querySelector(".name-1");
-    const from = document.querySelector(".from-1");
-    const end = document.querySelector(".end-1");
-    const area = document.querySelector(".area-1");
-
     const fromDate = new Date(data.currentSeason.startDate);
     const endDate = new Date(data.currentSeason.endDate);
+    
+    const name = document.getElementById("name-1");
+    const from = document.getElementById("from-1");
+    const end = document.getElementById("end-1");
+    const area = document.getElementById("area-1");
 
     name.innerHTML = data.name;
     area.innerHTML = data.area.name;
@@ -166,6 +167,7 @@ function getStandingsPrimeraDivision() {
               `;
       });
       
+      document.getElementById("st").innerHTML = "Standings";
       document.getElementById("standings-2").innerHTML = listStand;
 
       })
@@ -251,6 +253,7 @@ function getStandingsFIFA() {
               `;
       });
       
+      document.getElementById("st").innerHTML = "Standings";
       document.getElementById("standings-3").innerHTML = listStand;
 
       })

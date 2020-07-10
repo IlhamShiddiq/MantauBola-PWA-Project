@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     loadNav();
     
     function loadNav() {
+
+
+
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
@@ -24,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
                 // Muat konten halaman yang dipanggil
                 page = event.target.getAttribute("href").substr(1);
+
                 loadPage(page);
                 });
             });
@@ -46,6 +50,15 @@ document.addEventListener("DOMContentLoaded", function() {
           var content = document.querySelector("#body-content");
           if (this.status == 200) {
             content.innerHTML = xhttp.responseText;
+
+            if(page === "ligue-1") {
+              getDataLigue1();
+            } else if(page === "primera-division") {
+              getDataPrimeraDivision();
+            } else {
+              getDataFIFA();
+            }
+
           } else if (this.status == 404) {
             content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
           } else {
