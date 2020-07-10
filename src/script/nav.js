@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var elems = document.querySelectorAll(".sidenav");
     M.Sidenav.init(elems);
     loadNav();
+
+    
     
     function loadNav() {
-
-
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -15,8 +15,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
             // Muat daftar tautan menu
             document.querySelectorAll(".topnav, .sidenav").forEach(function(elm) {
-            elm.innerHTML = xhttp.responseText;
+              elm.innerHTML = xhttp.responseText;
             });
+
+            // const a = document.getElementById("a");
+            //   a.addEventListener("click", function(event){
+            //     loadPage("ligue-1");
+            //   })
     
             // Daftarkan event listener untuk setiap tautan menu
             document.querySelectorAll(".sidenav a, .topnav a").forEach(function(elm) {

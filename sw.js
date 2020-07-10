@@ -15,11 +15,13 @@ var urlsToCache = [
   "/src/script/font-awesome.js",
   "/src/script/materialize.min.js",
   "/src/script/nav.js",
+  "/src/script/swiper-opt.js",
   "/src/script/swiper.js",
   "/src/style/font-awesome.css",
   "/src/style/materialize.min.css",
   "/src/style/responsive.css",
   "/src/style/style.css",
+  "/src/style/swiper-opt.css",
   "/src/style/swiper.css"
 ];
  
