@@ -57,7 +57,7 @@ function getStandings(id) {
           listStand += `
                   <a href="#" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
                     <div class="card-sch left-align">
-                          <img src="${data.team.crestUrl}" height="70" width="80">
+                          <img src="${data.team.crestUrl}" height="70" width="80" alt="${data.team.name}">
                         <div class="name-stand white-color">
                             ${data.position}. ${data.team.name}
                             <div class="points center-align">
