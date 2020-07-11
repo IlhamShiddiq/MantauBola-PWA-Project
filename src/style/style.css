@@ -58,63 +58,6 @@
 .d-inline {
     display: inline-block;
 }
-/* Akhir Utility */
-
-/* Navigasi */
-nav {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    z-index: 3;
-}
-nav.d-purple {
-    background-color: purple;
-}
-a.brand-logo {
-    font-size: 24px;
-    font-weight: 600;
-    font-family: sans-serif;
-}
-.sidenav-overlay {
-    z-index: 2;
-}
-.circle a {
-    background-color: rgb(153, 35, 143);
-    font-size: 20px;
-    height: 60px;
-    width: 60px;
-    border-radius: 50px;
-    margin-top: -5px;
-    margin-left: 20px;
-}
-/* Navigasi */
-
-/* Home */
-.img-league {
-    position: absolute;
-    top: 30px; left: 0;
-    width: 100%;
-    height: 80px;
-}
-.info-league {
-    padding-top: 65px;
-}
-.info-league .name-league {
-    font-size: 17px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-.info-league .area-league {
-    font-size: 15px;
-    background-color: purple;
-    color: white;
-    width: 100px;
-    border-radius: 100px;
-    margin: auto;
-}
-/* Akhir Home */
-
-/* Ligue 1 */
 .schedule {
     width: 100%;
     padding: 20px;
@@ -183,20 +126,61 @@ a.sch-detail {
 .draw {
     background-color: rgb(201, 201, 201);
 }
-/* Akhir Ligue 1 */
+/* Akhir Utility */
 
-/* TIm */
-a.tim-detail {
-    margin-top: 15px;
-    border-radius: 30px;
-    border-bottom: 2px solid rgb(133, 133, 133);
-}
-.card-tim {
+/* Navigasi */
+nav {
+    position: fixed;
+    top: 0; left: 0;
     width: 100%;
-    height: 125px;
-    border-radius: 30px;
+    z-index: 3;
 }
-/* Akhir Tim */
+nav.d-purple {
+    background-color: purple;
+}
+a.brand-logo {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.sidenav-overlay {
+    z-index: 2;
+}
+.circle a {
+    background-color: rgb(153, 35, 143);
+    font-size: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    margin-top: -5px;
+    margin-left: 20px;
+}
+/* Navigasi */
+
+/* Home */
+.img-league {
+    position: absolute;
+    top: 30px; left: 0;
+    width: 100%;
+    height: 80px;
+}
+.info-league {
+    padding-top: 65px;
+}
+.info-league .name-league {
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.info-league .area-league {
+    font-size: 15px;
+    background-color: purple;
+    color: white;
+    width: 100px;
+    border-radius: 100px;
+    margin: auto;
+}
+/* Akhir Home */
 
 /* Favorit */
 .list-fav {
@@ -230,3 +214,71 @@ a.tim-detail {
     100%{opacity: 1;}
 }
 /* Akhir Loading */
+
+/* Detail Team */
+#body-content-detail {
+    padding-top: 63px;
+}
+.back {
+    font-size: 20px;
+    margin-right: 20px;
+}
+.wrapper-detail {
+    width: 80%;
+    height: 400px;
+    margin: auto;
+    margin-top: 40px;
+}
+.brand-team-img {
+    padding: 10px;
+    border-radius: 20px;
+}
+.info-team {
+    width: 100%;
+    background-color: purple;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-top: 30px;
+}
+.row-info {
+    padding: 0px !important;
+    margin-top: -15px;
+}
+.bold-text, .reg-text {
+    color: white;
+    font-size: 15px;
+}
+.bold-text {
+    font-weight: bold;
+    margin-top: 5px;
+}
+/* Akhir Detail Team */
+
+/* Floating */
+.floating {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    width: 50px;
+    height: 70px;
+    background-color: rgb(221, 52, 52);
+    font-size: 24px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 10px;
+    transition:all 300ms ease-in-out;
+   -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+    cursor: pointer;
+}
+.floating:hover {
+    background-color: rgb(148, 0, 0);
+    transition:all 300ms ease-in-out;
+   -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+/* Akhir Floating */
