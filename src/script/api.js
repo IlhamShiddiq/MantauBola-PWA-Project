@@ -61,7 +61,7 @@ function getStandings(id) {
             console.log(data.standings[0].table);
             data.standings[0].table.forEach(function(data) {
               listStand += `
-                    <a href="detail-team.html" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
+                    <a href="detail-team.html?id=${data.team.id}" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
                       <div class="card-sch left-align">
                             <img src="${data.team.crestUrl}" height="70" width="80" alt="${data.team.name}">
                           <div class="name-stand white-color">
