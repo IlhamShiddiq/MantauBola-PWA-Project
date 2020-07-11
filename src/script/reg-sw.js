@@ -12,4 +12,4 @@ if ("serviceWorker" in navigator) {
     });
   } else {
     console.log("ServiceWorker belum didukung browser ini.");
-  }
+}

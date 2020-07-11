@@ -17,11 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelectorAll(".topnav, .sidenav").forEach(function(elm) {
               elm.innerHTML = xhttp.responseText;
             });
-
-            // const a = document.getElementById("a");
-            //   a.addEventListener("click", function(event){
-            //     loadPage("ligue-1");
-            //   })
     
             // Daftarkan event listener untuk setiap tautan menu
             document.querySelectorAll(".sidenav a, .topnav a").forEach(function(elm) {
@@ -65,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if(page === "champions-l") {
               getData(2001);
             } else if(page === "home") {
-              swiperOn()
+              swiperOn();
+              
             }
 
           } else if (this.status == 404) {

@@ -6,7 +6,7 @@ function swiperOn() {
     loop: true,
     centeredSlides: true,
     autoplay: {
-        delay: 4000,
+        delay: 4500,
         disableOnInteraction: false,
       },
     pagination: {

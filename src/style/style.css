@@ -2,6 +2,9 @@
 .white-color {
     color: white;
 }
+.black-color {
+    color: black;
+}
 .banner-page {
     padding-top: 52px;
     width: 100%;
@@ -85,6 +88,31 @@ a.brand-logo {
     margin-left: 20px;
 }
 /* Navigasi */
+
+/* Home */
+.img-league {
+    position: absolute;
+    top: 30px; left: 0;
+    width: 100%;
+    height: 80px;
+}
+.info-league {
+    padding-top: 65px;
+}
+.info-league .name-league {
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.info-league .area-league {
+    font-size: 15px;
+    background-color: purple;
+    color: white;
+    width: 100px;
+    border-radius: 100px;
+    margin: auto;
+}
+/* Akhir Home */
 
 /* Ligue 1 */
 .schedule {
