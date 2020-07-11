@@ -49,9 +49,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (this.readyState == 4) {
           var content = document.querySelector("#body-content");
           if (this.status == 200) {
+            
             content.innerHTML = xhttp.responseText;
 
-            if(page === "ligue-1") {
+            if(page === "home") {
+              homePage();
+            } else if(page === "ligue-1") {
               getData(2015);
             } else if(page === "primera-division") {
               getData(2014);
@@ -59,9 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
               getData(2019);
             } else if(page === "champions-l") {
               getData(2001);
-            } else if(page === "home") {
-              swiperOn();
-              
             }
 
           } else if (this.status == 404) {

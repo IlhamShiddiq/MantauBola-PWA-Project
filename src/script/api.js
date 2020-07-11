@@ -157,3 +157,162 @@ function isiKonten(data) {
     from.innerHTML = "<span>Start</span> " + fromDate.toDateString() + ", &nbsp;";
     end.innerHTML = "<span>End</span> " + endDate.toDateString();
 }
+
+function homePage() {
+  const konten = `
+                <div class="sub-banner sub-banner-car">
+                  <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide black-color">
+                          <div class="img-league">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="a" width="110" class="z-depth-3">
+                          </div>
+                          <div class="info-league">
+                            <div class="name-league">
+                              Ligue 1
+                            </div>
+                            <div class="area-league">
+                              France
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide black-color">
+                          <div class="img-league">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="a" width="110" class="z-depth-3">
+                          </div>
+                          <div class="info-league">
+                            <div class="name-league">
+                              Primera Division
+                            </div>
+                            <div class="area-league">
+                              Spain
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide black-color">
+                          <div class="img-league">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" alt="a" width="110" class="z-depth-3">
+                          </div>
+                          <div class="info-league">
+                            <div class="name-league">
+                              Serie A
+                            </div>
+                            <div class="area-league">
+                              Italy
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide black-color">
+                          <div class="img-league">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/UEFA_Champions_League_logo_2.svg" alt="a" width="80" class="z-depth-3">
+                          </div>
+                          <div class="info-league">
+                            <div class="name-league">
+                              UEFA Champions League
+                            </div>
+                            <div class="area-league">
+                              Europe
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                  </div>
+              </div>
+              `;
+
+              document.getElementById("home-page").innerHTML = konten;
+              swiperOn();
+}
+
+function standId(id) {
+
+  if ('caches' in window) {
+    caches.match(base_url + `teams/${id}/`).then(function(response) {
+      if (response) {
+        response.json()
+        .then(function (data) {
+          isiInfo(data);
+          isiSquad(data);
+        })
+      }
+    })
+  }
+
+  fetch(base_url + `teams/${id}/`, {
+      headers: {
+          "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
+      },
+    })
+    .then(status)
+    .then(json)
+    .then(function(data) {
+        isiInfo(data);
+        isiSquad(data);
+    })
+    .catch(error);  
+}
+
+function isiInfo(data) {
+  const img = document.querySelector(".brand-team");
+  const name_st = document.getElementById("name-st");
+  const shortname_st = document.getElementById("shortname-st");
+  const address_st = document.getElementById("address-st");
+  const phone_st = document.getElementById("phone-st");
+  const color_st = document.getElementById("color-st");
+  const founded_st = document.getElementById("founded-st");
+  const email_st = document.getElementById("email-st");
+  const web_st = document.getElementById("web-st");
+
+  img.innerHTML = `<img src="${data.crestUrl}" alt="" height="175px" class="brand-team-img z-depth-3">`;
+  name_st.innerHTML = data.name;
+  shortname_st.innerHTML = data.shortName;
+  address_st.innerHTML = data.address;
+  phone_st.innerHTML = data.phone;
+  color_st.innerHTML = data.clubColors;
+  founded_st.innerHTML = data.founded;
+  email_st.innerHTML = data.email;
+  web_st.innerHTML = `<a href="${data.website}">${data.website}</a>`;
+}
+
+function isiSquad(data) {
+
+  let isiTabel = `
+    <table class="striped highlight">
+      <thead>
+        <tr>
+            <th class="center-align">Nomor</th>
+            <th>Nama</th>
+            <th>Posisi</th>
+            <th>Role</th>
+            <th>KWN</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      `;
+
+  data.squad.forEach(function(sq){
+    let no = sq.shirtNumber;
+    if(no == null) {
+      no = "-";
+    }
+    isiTabel += `
+    <tr>
+      <td class="center-align">${no}</td>
+      <td>${sq.name}</td>
+      <td>${sq.position}</td>
+      <td>${sq.role}</td>
+      <td>${sq.nationality}</td>
+    </tr>
+    `;
+  })
+
+  isiTabel += `
+    </tbody>
+  </table>
+  `;
+
+  document.getElementById("tabel").innerHTML = isiTabel;
+}

@@ -27,6 +27,9 @@
     .menu-desk {
         display: none;
     }
+    #body-content-detail {
+        padding-top: 43px;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
