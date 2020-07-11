@@ -1,6 +1,7 @@
-const CACHE_NAME = "mantaubola-v2";
+const CACHE_NAME = "mantaubola-v4";
 var urlsToCache = [
   "/",
+  "/fav-icon.jpg",
   "/nav.html",
   "/index.html",
   "/detail-team.html",
@@ -21,14 +22,12 @@ var urlsToCache = [
   "/pages/champions-l.html",
   "/src/image/nobar.png",
   "/src/script/api.js",
-  "/src/script/font-awesome.js",
   "/src/script/materialize.min.js",
   "/src/script/nav.js",
   "/src/script/jquery.js",
   "/src/script/reg-sw.js",
   "/src/script/swiper-opt.js",
   "/src/script/swiper.js",
-  "/src/style/font-awesome.css",
   "/src/style/materialize.min.css",
   "/src/style/responsive.css",
   "/src/style/style.css",
