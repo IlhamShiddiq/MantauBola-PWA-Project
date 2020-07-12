@@ -130,17 +130,19 @@
         fab.onclick = function() {
             console.log("clicked");
             take.then(function(saveTeam) {
-                saveIDB(saveTeam);
+                M.toast({html: 'Team Ditambah ke daftar favorit'});
+                saveIDB(saveTeam);  
             })
         }
 
         // onclick fa hapus button
         fabh.onclick = function() {
             console.log("clicked");
+            
             take.then(function(data) {
                 deleteTeam(data);
-                console.log(id);
             })
+            
         }
 
     </script>

@@ -16,6 +16,7 @@ function saveIDB(data) {
       })
       .then(function() {
         console.log("Artikel berhasil di simpan.");
+        M.toast({html: 'Team ditambah ke daftar favorit'});
       });
 }
 
@@ -28,6 +29,7 @@ function deleteTeam(data) {
         return tx.complete;
       }).then(function() {
         console.log('Team dihapus');
+        M.toast({html: 'Team dihapus dari daftar favorit'});
       });
 }
 
