@@ -297,6 +297,11 @@ a.brand-logo {
    -ms-transition:all 300ms ease-in-out;
     cursor: pointer;
 }
+.floating-hapus {
+    display: none;
+    background-color: rgb(184, 0, 0);
+    padding-top: 15px;
+}
 .floating:hover {
     background-color: rgb(148, 0, 0);
     transition:all 300ms ease-in-out;

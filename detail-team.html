@@ -94,6 +94,10 @@
     <div class="floating center-align white-color" id="fab">
         <i class="small material-icons">save</i>
     </div>
+
+    <div class="floating floating-hapus center-align white-color" id="fab-hapus">
+        <i class="small material-icons">delete</i>
+    </div>
     <!-- Akhir Floating Button -->
 
     <script src="src/script/nav.js"></script>
@@ -112,12 +116,14 @@
         var id = urlParams.get("id");
 
         const fab = document.getElementById("fab");
+        const fabh = document.getElementById("fab-hapus");
         const take = standId(id);
         // Checking favorit team or not
         var fav = urlParams.get("fav");
         console.log(fav)
         if(fav) {
             fab.style.display = 'none';
+            fabh.style.display = 'inline';
         }
 
         // onclick fa button
@@ -125,6 +131,15 @@
             console.log("clicked");
             take.then(function(saveTeam) {
                 saveIDB(saveTeam);
+            })
+        }
+
+        // onclick fa hapus button
+        fabh.onclick = function() {
+            console.log("clicked");
+            take.then(function(data) {
+                deleteTeam(data);
+                console.log(id);
             })
         }
 

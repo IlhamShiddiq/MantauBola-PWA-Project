@@ -344,7 +344,13 @@ function getSavedTeams() {
       jml++;
     });
     // Sisipkan komponen card ke dalam elemen dengan id #body-content
-    document.getElementById("list-fav").innerHTML = listTeam;
     document.getElementById("jml").innerHTML = `${jml} Daftar`;
+    
+    if(jml != 0) {
+      document.getElementById("list-fav").innerHTML = listTeam;
+    } else {
+      document.getElementById("list-fav").innerHTML = `<div class="white-color">Anda tidak mempunyai tim favorit</div>`;
+    }
+
   });
 }
