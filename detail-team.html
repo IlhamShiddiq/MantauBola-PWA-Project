@@ -106,6 +106,8 @@
     <script src="src/script/idb.js"></script>
     <script src="src/script/db.js"></script>
     <script>
+        
+
         // Onclick back button
         function back() {
             window.history.back();
@@ -115,24 +117,40 @@
         var urlParams = new URLSearchParams(window.location.search);
         var id = urlParams.get("id");
 
+        
+
+        const check = () => {
+            checkingIDB(parseInt(id)).then(result => {
+                if(typeof result === 'undefined') {
+                    fab.style.display = 'inline';
+                    fabh.style.display = 'none';
+                } else {
+                    fabh.style.display = 'inline';
+                    fab.style.display = 'none';
+                }
+            })
+        }
+
+
         const fab = document.getElementById("fab");
         const fabh = document.getElementById("fab-hapus");
         const take = standId(id);
         // Checking favorit team or not
         var fav = urlParams.get("fav");
-        console.log(fav)
         if(fav) {
             fab.style.display = 'none';
             fabh.style.display = 'inline';
+        } else {
+            check();
         }
 
         // onclick fa button
         fab.onclick = function() {
             console.log("clicked");
             take.then(function(saveTeam) {
-                M.toast({html: 'Team Ditambah ke daftar favorit'});
                 saveIDB(saveTeam);  
             })
+            fabh.style.display = "inline";
         }
 
         // onclick fa hapus button
@@ -142,7 +160,7 @@
             take.then(function(data) {
                 deleteTeam(data);
             })
-            
+            fabh.style.display = "none";
         }
 
     </script>

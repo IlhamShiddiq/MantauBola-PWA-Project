@@ -1,5 +1,5 @@
-function swiperOn() {
-  var swiper = new Swiper('.swiper-container', {
+const swiperOn = () => {
+  let swiper = new Swiper('.swiper-container', {
     slidesPerView: 4,
     spaceBetween: 30,
     centeredSlides: true,

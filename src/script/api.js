@@ -1,6 +1,6 @@
-var base_url = "https://api.football-data.org/v2/";
+const base_url = "https://api.football-data.org/v2/";
 
-function status(response) {
+const status = response => {
   if (response.status !== 200) {
     console.log("Error : " + response.status);
     return Promise.reject(new Error(response.statusText));
@@ -9,23 +9,23 @@ function status(response) {
   }
 }
 
-function json(response) {
+const json = response => {
   return response.json();
 }
 
-function error(error) {
+const error = error => {
   console.log("Error : " + error);
 }
 
 
 // Ligue 1
-function getData(id) {
+const getData = id => {
 
     if ('caches' in window) {
-      caches.match(base_url + `competitions/${id}/`).then(function(response) {
+      caches.match(base_url + `competitions/${id}/`).then(response => {
         if (response) {
           response.json()
-          .then(function (data) {
+          .then(data => {
             isiKonten(data);
             getStandings(id);
           })
@@ -40,7 +40,7 @@ function getData(id) {
         })
         .then(status)
         .then(json)
-        .then(function(data) {
+        .then(data => {
         console.log(data);
             isiKonten(data);
             getStandings(id);
@@ -48,18 +48,18 @@ function getData(id) {
         .catch(error);  
   }
 
-function getStandings(id) {
+const getStandings = id => {
 
     if ('caches' in window) {
-      caches.match(base_url + `competitions/${id}/standings/`).then(function(response) {
+      caches.match(base_url + `competitions/${id}/standings/`).then(response => {
         if (response) {
-          response.json().then(function (data) {
+          response.json().then(data => {
             // Showing Total
           const t_st = document.getElementById("stTotal");
           t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
-            var listStand = "";
+            let listStand = "";
             console.log(data.standings[0].table);
-            data.standings[0].table.forEach(function(data) {
+            data.standings[0].table.forEach(data => {
               listStand += `
                     <a href="detail-team.html?id=${data.team.id}" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
                       <div class="card-sch left-align">
@@ -100,15 +100,15 @@ function getStandings(id) {
         })
         .then(status)
         .then(json)
-        .then(function(data) {
+        .then(data => {
 
           // Showing Total
           const t_st = document.getElementById("stTotal");
           t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
 
-        var listStand = "";
+        let listStand = "";
         console.log(data.standings[0].table);
-        data.standings[0].table.forEach(function(data) {
+        data.standings[0].table.forEach(data => {
           listStand += `
                   <a href="detail-team.html?id=${data.team.id}" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
                     <div class="card-sch left-align">
@@ -143,7 +143,7 @@ function getStandings(id) {
         .catch(error);
 }
 
-function isiKonten(data) {
+const isiKonten = data => {
     const fromDate = new Date(data.currentSeason.startDate);
     const endDate = new Date(data.currentSeason.endDate);
     
@@ -158,7 +158,7 @@ function isiKonten(data) {
     end.innerHTML = "<span>End</span> " + endDate.toDateString();
 }
 
-function homePage() {
+const homePage = () => {
   const konten = `
                 <div class="sub-banner sub-banner-car">
                   <div class="swiper-container">
@@ -226,14 +226,14 @@ function homePage() {
               swiperOn();
 }
 
-function standId(id) {
+const standId = id => {
 
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     if ('caches' in window) {
-      caches.match(base_url + `teams/${id}/`).then(function(response) {
+      caches.match(base_url + `teams/${id}/`).then(response => {
         if (response) {
           response.json()
-          .then(function (data) {
+          .then(data => {
             isiInfo(data);
             isiSquad(data);
             resolve(data);
@@ -249,7 +249,7 @@ function standId(id) {
       })
       .then(status)
       .then(json)
-      .then(function(data) {
+      .then(data => {
           isiInfo(data);
           isiSquad(data);
           resolve(data);
@@ -258,7 +258,7 @@ function standId(id) {
   });
 }
 
-function isiInfo(data) {
+const isiInfo = data => {
   const img = document.querySelector(".brand-team");
   const name_st = document.getElementById("name-st");
   const shortname_st = document.getElementById("shortname-st");
@@ -277,10 +277,10 @@ function isiInfo(data) {
   color_st.innerHTML = data.clubColors;
   founded_st.innerHTML = data.founded;
   email_st.innerHTML = data.email;
-  web_st.innerHTML = `<a href="${data.website}">${data.website}</a>`;
+  web_st.innerHTML = `<a href="${data.website}">Website</a>`;
 }
 
-function isiSquad(data) {
+const isiSquad = data => {
 
   let isiTabel = `
     <table class="striped highlight">
@@ -297,7 +297,7 @@ function isiSquad(data) {
       <tbody>
       `;
 
-  data.squad.forEach(function(sq){
+  data.squad.forEach(sq => {
     let no = sq.shirtNumber;
     if(no == null) {
       no = "-";
@@ -321,13 +321,13 @@ function isiSquad(data) {
   document.getElementById("tabel").innerHTML = isiTabel;
 }
 
-function getSavedTeams() {
-  getAll().then(function(data) {
+const getSavedTeams = () => {
+  getAll().then(data => {
     console.log(data);
     // Menyusun komponen card artikel secara dinamis
-    var listTeam = "";
+    let listTeam = "";
     let jml = 0;
-    data.forEach(function(datateam) {
+    data.forEach(datateam => {
       listTeam += `
               <a href="detail-team.html?id=${datateam.id}&fav=true" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail sch-detail-white hoverable">
                 <div class="card-sch left-align">

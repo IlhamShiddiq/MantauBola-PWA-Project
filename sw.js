@@ -1,6 +1,8 @@
 const CACHE_NAME = "mantaubola-v4";
 var urlsToCache = [
   "/",
+  "/package-lock.json",
+  "/push.js",
   "/fav-icon.jpg",
   "/nav.html",
   "/index.html",

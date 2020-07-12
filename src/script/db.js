@@ -1,49 +1,65 @@
-var dbPromised = idb.open("teams", 1, function(upgradeDb) {
-    var ObjectStore = upgradeDb.createObjectStore("teamlist", {
+const dbPromised = idb.open("teams", 1, upgradeDb => {
+    const ObjectStore = upgradeDb.createObjectStore("teamlist", {
       keyPath: "id"
     });
 });
 
-function saveIDB(data) {
+const saveIDB = data => {
     dbPromised
-      .then(function(db) {
-        var tx = db.transaction("teamlist", "readwrite");
-        var store = tx.objectStore("teamlist");
+      .then(db => {
+        const tx = db.transaction("teamlist", "readwrite");
+        const store = tx.objectStore("teamlist");
         console.log(data);
         store.add(data);
 
         return tx.complete;
       })
-      .then(function() {
+      .then(() => {
         console.log("Artikel berhasil di simpan.");
         M.toast({html: 'Team ditambah ke daftar favorit'});
       });
 }
 
-function deleteTeam(data) {
-    dbPromised.then(function(db) {
-        var tx = db.transaction('teamlist', 'readwrite');
-        var store = tx.objectStore('teamlist');
+const deleteTeam = data => {
+    dbPromised.then(db => {
+        const tx = db.transaction('teamlist', 'readwrite');
+        const store = tx.objectStore('teamlist');
         store.delete(data.id);
         console.log(data.id);
         return tx.complete;
-      }).then(function() {
+      }).then(() => {
         console.log('Team dihapus');
         M.toast({html: 'Team dihapus dari daftar favorit'});
       });
 }
 
-function getAll() {
-    return new Promise(function(resolve, reject) {
+const getAll = () => {
+    return new Promise((resolve, reject) => {
       dbPromised
-        .then(function(db) {
-          var tx = db.transaction("teamlist", "readonly");
-          var store = tx.objectStore("teamlist");
+        .then(db => {
+          const tx = db.transaction("teamlist", "readonly");
+          const store = tx.objectStore("teamlist");
 
           return store.getAll();
         })
-        .then(function(articles) {
-          resolve(articles);
+        .then(datanya => {
+          resolve(datanya);
         });
     });
+}
+
+const checkingIDB = id => {
+
+  return new Promise((resolve, reject) => {
+    dbPromised
+      .then(db => {
+        const tx = db.transaction("teamlist", "readonly");
+        const store = tx.objectStore("teamlist");
+
+        return store.get(id);
+      })
+      .then(datanya => {
+        resolve(datanya)
+      });
+  });
 }
