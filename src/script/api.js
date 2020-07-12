@@ -228,30 +228,34 @@ function homePage() {
 
 function standId(id) {
 
-  if ('caches' in window) {
-    caches.match(base_url + `teams/${id}/`).then(function(response) {
-      if (response) {
-        response.json()
-        .then(function (data) {
+  return new Promise(function(resolve, reject) {
+    if ('caches' in window) {
+      caches.match(base_url + `teams/${id}/`).then(function(response) {
+        if (response) {
+          response.json()
+          .then(function (data) {
+            isiInfo(data);
+            isiSquad(data);
+            resolve(data);
+          })
+        }
+      })
+    }
+
+    fetch(base_url + `teams/${id}/`, {
+        headers: {
+            "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
+        },
+      })
+      .then(status)
+      .then(json)
+      .then(function(data) {
           isiInfo(data);
           isiSquad(data);
-        })
-      }
-    })
-  }
-
-  fetch(base_url + `teams/${id}/`, {
-      headers: {
-          "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-      },
-    })
-    .then(status)
-    .then(json)
-    .then(function(data) {
-        isiInfo(data);
-        isiSquad(data);
-    })
-    .catch(error);  
+          resolve(data);
+      })
+      .catch(error);  
+  });
 }
 
 function isiInfo(data) {
@@ -315,4 +319,32 @@ function isiSquad(data) {
   `;
 
   document.getElementById("tabel").innerHTML = isiTabel;
+}
+
+function getSavedTeams() {
+  getAll().then(function(data) {
+    console.log(data);
+    // Menyusun komponen card artikel secara dinamis
+    var listTeam = "";
+    let jml = 0;
+    data.forEach(function(datateam) {
+      listTeam += `
+              <a href="detail-team.html?id=${datateam.id}&fav=true" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail sch-detail-white hoverable">
+                <div class="card-sch left-align">
+                  <img src="${datateam.crestUrl}" height="70" width="80" alt="${datateam.name}">
+                  <div class="name-stand purple-color">
+                    ${datateam.name}
+                  </div>
+                  <div class="founded-stand purple-color">
+                    ${datateam.founded}
+                  </div>
+                </div>
+              </a> 
+                `;
+      jml++;
+    });
+    // Sisipkan komponen card ke dalam elemen dengan id #body-content
+    document.getElementById("list-fav").innerHTML = listTeam;
+    document.getElementById("jml").innerHTML = `${jml} Daftar`;
+  });
 }

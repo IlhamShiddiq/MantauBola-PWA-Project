@@ -62,6 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
               getData(2019);
             } else if(page === "champions-l") {
               getData(2001);
+            } else if(page === "favorit") {
+              getSavedTeams();
             }
 
           } else if (this.status == 404) {

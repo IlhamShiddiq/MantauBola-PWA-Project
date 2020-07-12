@@ -86,7 +86,7 @@ a.sch-detail {
     border-radius: 20px;
 }
 a.sch-detail-white {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 .card-sch {
     width: 100%;
@@ -96,6 +96,15 @@ a.sch-detail-white {
 }
 .card-sch img {
     margin-top: 10px;
+}
+.founded-stand {
+    position: absolute;
+    top: 55px;
+    left: 120px;
+    background-color: purple;
+    color: white;
+    padding: 0 10px;
+    border-radius: 10px;
 }
 .name-stand {
     position: absolute;
@@ -194,8 +203,8 @@ a.brand-logo {
 /* Favorit */
 .wrapper-fav-list {
     background-color: purple;
-    border-top-left-radius: 70px;
-    border-top-right-radius: 70px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
     min-height: 300px;
 }
 /* Akhir Favorit */

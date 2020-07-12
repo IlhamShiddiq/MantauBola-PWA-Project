@@ -91,7 +91,7 @@
     <!-- Akhir Content -->
 
     <!-- Floating Button -->
-    <div class="floating center-align white-color">
+    <div class="floating center-align white-color" id="fab">
         <i class="small material-icons">save</i>
     </div>
     <!-- Akhir Floating Button -->
@@ -99,14 +99,35 @@
     <script src="src/script/nav.js"></script>
     <script src="src/script/materialize.min.js"></script>
     <script src="src/script/api.js"></script>
+    <script src="src/script/idb.js"></script>
+    <script src="src/script/db.js"></script>
     <script>
+        // Onclick back button
         function back() {
             window.history.back();
         }
 
+        // Fetch Data by Id
         var urlParams = new URLSearchParams(window.location.search);
         var id = urlParams.get("id");
-        standId(id);
+
+        const fab = document.getElementById("fab");
+        const take = standId(id);
+        // Checking favorit team or not
+        var fav = urlParams.get("fav");
+        console.log(fav)
+        if(fav) {
+            fab.style.display = 'none';
+        }
+
+        // onclick fa button
+        fab.onclick = function() {
+            console.log("clicked");
+            take.then(function(saveTeam) {
+                saveIDB(saveTeam);
+            })
+        }
+
     </script>
     
 </body>
