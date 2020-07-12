@@ -5,6 +5,12 @@
 .black-color {
     color: black;
 }
+.purple-color {
+    color: purple;
+}
+.d-ib {
+    display: inline-block;
+}
 .banner-page {
     padding-top: 52px;
     width: 100%;
@@ -78,6 +84,9 @@ a.sch-detail {
     margin-top: 13px;
     background-color: purple;
     border-radius: 20px;
+}
+a.sch-detail-white {
+    background-color: #fff;
 }
 .card-sch {
     width: 100%;
@@ -183,8 +192,11 @@ a.brand-logo {
 /* Akhir Home */
 
 /* Favorit */
-.list-fav {
-    padding-top: 100px;
+.wrapper-fav-list {
+    background-color: purple;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    min-height: 300px;
 }
 /* Akhir Favorit */
 
@@ -198,6 +210,9 @@ a.brand-logo {
     height: 10px;
     border-radius: 100px;
     background-color: purple;
+}
+.loading-white {
+    background-color: #fff;
 }
 .load-1 {
     animation: load .7s infinite linear;

@@ -21,6 +21,7 @@ var urlsToCache = [
   "/pages/seriea.html",
   "/pages/champions-l.html",
   "/src/image/nobar.png",
+  "/src/image/star.png",
   "/src/script/api.js",
   "/src/script/materialize.min.js",
   "/src/script/nav.js",
