@@ -16,6 +16,9 @@
     .img-nobar img {
         bottom: 70px; right: -20px;
     }
+    .img-star img {
+        bottom: 20px; right: -20px;
+    }
     .date {
         bottom: 15px;
         width: 100%;
@@ -29,6 +32,9 @@
     }
     #body-content-detail {
         padding-top: 43px;
+    }
+    .wrapper-fav-list {
+        margin-top: 20px;
     }
 }
 
