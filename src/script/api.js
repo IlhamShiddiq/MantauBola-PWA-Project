@@ -1,6 +1,16 @@
 import {getAll} from "./db.js";
 
 const base_url = "https://api.football-data.org/v2/";
+const API = "e9cc4588ffe7402d86183b403094e7d6";
+const fetchAPI = url => {
+  return fetch(url, {
+    headers: {
+        "X-Auth-Token": API
+    },
+  })
+}
+
+
 
 const status = response => {
   if (response.status !== 200) {
@@ -35,19 +45,14 @@ const getData = id => {
       })
     }
 
-    fetch(base_url + `competitions/${id}/`, {
-            headers: {
-                "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-            },
-        })
-        .then(status)
-        .then(json)
-        .then(data => {
-        console.log(data);
-            isiKonten(data);
-            getStandings(id);
-        })
-        .catch(error);  
+    fetchAPI(`${base_url}competitions/${id}/`)
+      .then(status)
+      .then(json)
+      .then(data => {
+          isiKonten(data);
+          getStandings(id);
+      })
+      .catch(error);  
   }
 
 const getStandings = id => {
@@ -60,7 +65,6 @@ const getStandings = id => {
           const t_st = document.getElementById("stTotal");
           t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
             let listStand = "";
-            console.log(data.standings[0].table);
             data.standings[0].table.forEach(data => {
               listStand += `
                     <a href="detail-team.html?id=${data.team.id}" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
@@ -95,21 +99,17 @@ const getStandings = id => {
         }
       })
     }
-    fetch(base_url + `competitions/${id}/standings/`, {
-            headers: {
-                "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-            },
-        })
-        .then(status)
-        .then(json)
-        .then(data => {
+    
+    fetchAPI(`${base_url}competitions/${id}/standings/`)
+      .then(status)
+      .then(json)
+      .then(data => {
 
-          // Showing Total
-          const t_st = document.getElementById("stTotal");
-          t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
+        // Showing Total
+        const t_st = document.getElementById("stTotal");
+        t_st.innerHTML = `<h6 class="stand-total">${data.standings[0].table.length} Total</h6>`;
 
         let listStand = "";
-        console.log(data.standings[0].table);
         data.standings[0].table.forEach(data => {
           listStand += `
                   <a href="detail-team.html?id=${data.team.id}" class="col xl8 offset-xl2 l8 offset-l2 m10 offset-m1 s12 sch-detail hoverable">
@@ -244,11 +244,7 @@ const standId = id => {
       })
     }
 
-    fetch(base_url + `teams/${id}/`, {
-        headers: {
-            "X-Auth-Token": "e9cc4588ffe7402d86183b403094e7d6"
-        },
-      })
+    fetchAPI(`${base_url}teams/${id}/`)
       .then(status)
       .then(json)
       .then(data => {
@@ -301,7 +297,7 @@ const isiSquad = data => {
 
   data.squad.forEach(sq => {
     let no = sq.shirtNumber;
-    if(no == null) {
+    if(no === null) {
       no = "-";
     }
     isiTabel += `
@@ -325,7 +321,6 @@ const isiSquad = data => {
 
 const getSavedTeams = () => {
   getAll().then(data => {
-    console.log(data);
     // Menyusun komponen card artikel secara dinamis
     let listTeam = "";
     let jml = 0;

@@ -1,28 +1,11 @@
+const {assets} = global.serviceWorkerOption;
+
 const CACHE_NAME = "mantaubola-v5";
-const urlsToCache = [
-  "/",
-  "/fav-icon.jpg",
-  "/nav.html",
-  "/index.html",
-  "/detail-team.html",
-  "/manifest.json",
-  "/images/icons/icon-72x72.png",
-  "/images/icons/icon-96x96.png",
-  "/images/icons/icon-128x128.png",
-  "/images/icons/icon-144x144.png",
-  "/images/icons/icon-152x152.png",
-  "/images/icons/icon-192x192.png",
-  "/images/icons/icon-384x384.png",
-  "/images/icons/icon-512x512.png",
-  "/pages/favorit.html",
-  "/pages/home.html",
-  "/pages/ligue-1.html",
-  "/pages/primera-division.html",
-  "/pages/seriea.html",
-  "/pages/champions-l.html",
-  "/src/image/nobar.png",
-  "/src/image/star.png",
-];
+let urlsToCache = [...assets, './'];
+
+urlsToCache = urlsToCache.map(path => {
+  return new URL(path, global.location).toString();
+})
  
 self.addEventListener("install", function(event) {
   event.waitUntil(

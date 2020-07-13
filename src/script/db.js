@@ -11,8 +11,7 @@ const saveIDB = data => {
       .then(db => {
         const tx = db.transaction("teamlist", "readwrite");
         const store = tx.objectStore("teamlist");
-        console.log(data);
-        store.add(data);
+        store.put(data);
 
         return tx.complete;
       })
@@ -27,7 +26,6 @@ const deleteTeam = data => {
         const tx = db.transaction('teamlist', 'readwrite');
         const store = tx.objectStore('teamlist');
         store.delete(data.id);
-        console.log(data.id);
         return tx.complete;
       }).then(() => {
         console.log('Team dihapus');

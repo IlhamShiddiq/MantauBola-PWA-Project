@@ -44,6 +44,14 @@
     .pantau h1 {
         width: 90%;
     }
+    .name-stand {
+        top: 14px;
+        font-size: 15px;
+    }
+    .pantau img {
+        width: 350px;
+        right: 25px;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -72,6 +80,9 @@
     .pantau h1 {
         width: 80%;
     }
+    .pantau img {
+        width: 340px;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -93,6 +104,9 @@
     }
     .pantau h1 {
         width: 60%;
+    }
+    .pantau img {
+        width: 400px;
     }
 }
 

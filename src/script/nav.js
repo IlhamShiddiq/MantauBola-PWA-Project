@@ -116,7 +116,6 @@ const navOpt = () => {
 
     // onclick fa button
     fab.onclick = function() {
-        console.log("clicked");
         take.then(function(saveTeam) {
             saveIDB(saveTeam);  
         })
@@ -125,8 +124,6 @@ const navOpt = () => {
 
     // onclick fa hapus button
     fabh.onclick = function() {
-        console.log("clicked");
-        
         take.then(function(data) {
             deleteTeam(data);
         })

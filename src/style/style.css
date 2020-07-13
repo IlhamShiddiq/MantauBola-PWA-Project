@@ -211,6 +211,41 @@ a.brand-logo {
     padding: 10px 0;
     margin: auto;
 }
+.pantau {
+    width: 100%;
+    min-height: 52vh;
+    background-color: rgb(170, 13, 170);
+    margin-top: 20px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 30px;
+    position: relative;
+}
+.pantau h1 {
+    width: 400px;
+    padding: 15px 0;
+    margin: auto;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 16px;
+    background-color: #fff;
+    color: rgb(170, 13, 170);
+}
+.pantau img {
+    position: absolute;
+    bottom: 20px; right: 30px;
+    width: 430px;
+    z-index: 2;
+}
+.pantau svg {
+    /* background-color: rgb(109, 3, 109); */
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 /* Akhir Home */
 
 /* Favorit */
@@ -218,7 +253,7 @@ a.brand-logo {
     background-color: rgb(170, 13, 170);
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
-    min-height: 300px;
+    min-height: 55vh;
 }
 /* Akhir Favorit */
 
@@ -288,6 +323,12 @@ a.brand-logo {
 .bold-text {
     font-weight: bold;
     margin-top: 5px;
+}
+.reg-text {
+    word-wrap: break-word;
+}
+#tabel {
+    overflow-x: auto;
 }
 /* Akhir Detail Team */
 

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
 
 module.exports = {
     entry: "./src/script/index.js",
@@ -21,18 +22,6 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test: /\.js$/,
-                exclude: "/node_modules/",
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
-                    }
-                ]
-            }
         ]
     },
     plugins: [
@@ -53,10 +42,6 @@ module.exports = {
                     to: path.resolve(__dirname, 'dist/pages')
                 },
                 {
-                    from: path.resolve(__dirname, './sw.js'),
-                    to: path.resolve(__dirname, './dist/')
-                },
-                {
                     from: path.resolve(__dirname, './nav.html'),
                     to: path.resolve(__dirname, './dist/')
                 },
@@ -73,6 +58,9 @@ module.exports = {
                     to: path.resolve(__dirname, './dist/images/icons')
                 },
             ],
+        }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, '/sw.js')
         }),
     ],
 };

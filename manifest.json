@@ -1,8 +1,8 @@
 {
   "name": "MantauBola",
   "short_name": "MantauBola",
-  "theme_color": "rgb(128,0,128)",
-  "background_color": "rgb(128,0,128)",
+  "theme_color": "#800080",
+  "background_color": "#800080",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/index.html",
