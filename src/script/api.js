@@ -1,3 +1,5 @@
+import {getAll} from "./db.js";
+
 const base_url = "https://api.football-data.org/v2/";
 
 const status = response => {
@@ -223,7 +225,7 @@ const homePage = () => {
               `;
 
               document.getElementById("home-page").innerHTML = konten;
-              swiperOn();
+              
 }
 
 const standId = id => {
@@ -353,4 +355,11 @@ const getSavedTeams = () => {
     }
 
   });
+}
+
+export {
+  getData,
+  homePage,
+  standId,
+  getSavedTeams
 }

@@ -1,0 +1,38 @@
+{
+  "name": "mantaubola",
+  "version": "1.0.0",
+  "description": "Web Pemantau Liga Bola",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "materialize-css": "^1.0.0",
+    "swiper": "^6.0.2",
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IlhamShiddiq/MantauBola-PWA-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IlhamShiddiq/MantauBola-PWA-Project/issues"
+  },
+  "homepage": "https://github.com/IlhamShiddiq/MantauBola-PWA-Project#readme"
+}

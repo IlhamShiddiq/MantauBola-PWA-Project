@@ -1,3 +1,5 @@
+import Swiper from "./swiper.js";
+
 const swiperOn = () => {
   let swiper = new Swiper('.swiper-container', {
     slidesPerView: 4,
@@ -29,3 +31,5 @@ const swiperOn = () => {
     }
   });
 }
+
+export default swiperOn;

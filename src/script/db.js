@@ -1,3 +1,5 @@
+import idb from "./idb.js";
+
 const dbPromised = idb.open("teams", 1, upgradeDb => {
     const ObjectStore = upgradeDb.createObjectStore("teamlist", {
       keyPath: "id"
@@ -63,3 +65,10 @@ const checkingIDB = id => {
       });
   });
 }
+
+export {
+  saveIDB,
+  deleteTeam,
+  getAll,
+  checkingIDB
+};

@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+import M from "./materialize.min.js";
+import {getData, homePage, standId, getSavedTeams} from "./api.js";
+import {saveIDB, deleteTeam, checkingIDB} from "./db.js";
+import swiperOn from "./swiper-opt.js";
+
   // Activate sidebar nav
   let elems = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(elems);
   
 
   const loadNav = () => {
@@ -36,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    loadNav();
-  });
 
 
   // Load page content
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if(page === "home") {
             homePage();
+            swiperOn();
           } else if(page === "ligue-1") {
             getData(2015);
           } else if(page === "primera-division") {
@@ -78,4 +80,66 @@ document.addEventListener("DOMContentLoaded", () => {
     xhttp.send();
 }
 
-loadPage(page);
+const navOpt = () => {
+  const pg = window.location.pathname.substr(1);
+	if (pg === 'detail-team.html') {
+		
+
+    // Fetch Data by Id
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get("id");
+
+    const check = () => {
+        checkingIDB(parseInt(id)).then(result => {
+            if(typeof result === 'undefined') {
+                fab.style.display = 'inline';
+                fabh.style.display = 'none';
+            } else {
+                fabh.style.display = 'inline';
+                fab.style.display = 'none';
+            }
+        })
+    }
+
+
+    const fab = document.getElementById("fab");
+    const fabh = document.getElementById("fab-hapus");
+    const take = standId(id);
+    // Checking favorit team or not
+    var fav = urlParams.get("fav");
+    if(fav) {
+        fab.style.display = 'none';
+        fabh.style.display = 'inline';
+    } else {
+        check();
+    }
+
+    // onclick fa button
+    fab.onclick = function() {
+        console.log("clicked");
+        take.then(function(saveTeam) {
+            saveIDB(saveTeam);  
+        })
+        fabh.style.display = "inline";
+    }
+
+    // onclick fa hapus button
+    fabh.onclick = function() {
+        console.log("clicked");
+        
+        take.then(function(data) {
+            deleteTeam(data);
+        })
+        fabh.style.display = "none";
+    }
+	} else {
+		if (page === '') {
+			page = 'home';
+		}
+		M.Sidenav.init(elems);
+		loadNav();
+		loadPage(page);
+	}
+}
+
+export default navOpt;

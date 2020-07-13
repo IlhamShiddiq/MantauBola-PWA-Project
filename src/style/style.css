@@ -6,7 +6,7 @@
     color: black;
 }
 .purple-color {
-    color: purple;
+    color: rgb(161, 8, 161)
 }
 .d-ib {
     display: inline-block;
@@ -20,7 +20,7 @@
 .sub-banner {
     width: 80%;
     height: 265px;
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
     margin: auto;
     margin-top: 30px;
     padding: 20px;
@@ -82,7 +82,7 @@ h6.stand-total {
 }
 a.sch-detail {
     margin-top: 13px;
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
     border-radius: 20px;
 }
 a.sch-detail-white {
@@ -101,7 +101,7 @@ a.sch-detail-white {
     position: absolute;
     top: 55px;
     left: 120px;
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
     color: white;
     padding: 0 10px;
     border-radius: 10px;
@@ -154,7 +154,7 @@ nav {
     z-index: 3;
 }
 nav.d-purple {
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
 }
 a.brand-logo {
     font-size: 24px;
@@ -192,17 +192,30 @@ a.brand-logo {
 }
 .info-league .area-league {
     font-size: 15px;
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
     color: white;
     width: 100px;
     border-radius: 100px;
+    margin: auto;
+}
+.pantau {
+    width: 100%;
+}
+.pantau h1 {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(170, 13, 170);
+    width: 50%;
+    border-radius: 5px;
+    padding: 10px 0;
     margin: auto;
 }
 /* Akhir Home */
 
 /* Favorit */
 .wrapper-fav-list {
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
     min-height: 300px;
@@ -218,7 +231,7 @@ a.brand-logo {
     width: 10px;
     height: 10px;
     border-radius: 100px;
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
 }
 .loading-white {
     background-color: #fff;
@@ -259,7 +272,7 @@ a.brand-logo {
 }
 .info-team {
     width: 100%;
-    background-color: purple;
+    background-color: rgb(170, 13, 170);
     border-radius: 20px;
     margin-top: 20px;
     padding-top: 30px;
