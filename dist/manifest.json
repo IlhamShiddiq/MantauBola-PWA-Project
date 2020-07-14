@@ -1,6 +1,7 @@
 {
   "name": "MantauBola",
   "short_name": "MantauBola",
+  "description" : "Pantau terus tim liga favoritmu!",
   "theme_color": "#800080",
   "background_color": "#800080",
   "display": "standalone",

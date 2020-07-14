@@ -10,7 +10,7 @@ import swiperOn from "./swiper-opt.js";
   const loadNav = () => {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-    if (this.readyState == 4) {
+    if (this.readyState === 4) {
         if (this.status != 200) return;
 
         // Muat daftar tautan menu
@@ -43,41 +43,39 @@ import swiperOn from "./swiper-opt.js";
 
   // Load page content
   let page = window.location.hash.substr(1);
-  if (page == "") page = "home";
+  if (page === "") page = "home";
     
   const loadPage = page => {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4) {
+    
+    fetch(`pages/${page}.html`, {
+      method: "GET"
+      })
+      .then(response => {
+        return response.text();
+      })
+      .then((responseJson) => {
+
         let content = document.querySelector("#body-content");
-        if (this.status == 200) {
-          
-          content.innerHTML = xhttp.responseText;
+        content.innerHTML = responseJson;
 
-          if(page === "home") {
-            homePage();
-            swiperOn();
-          } else if(page === "ligue-1") {
-            getData(2015);
-          } else if(page === "primera-division") {
-            getData(2014);
-          } else if(page === "seriea") {
-            getData(2019);
-          } else if(page === "champions-l") {
-            getData(2001);
-          } else if(page === "favorit") {
-            getSavedTeams();
-          }
-
-        } else if (this.status == 404) {
-          content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
-        } else {
-          content.innerHTML = "<p>Ups.. halaman tidak dapat diakses.</p>";
+        if(page === "home") {
+          homePage();
+          swiperOn();
+        } else if(page === "ligue-1") {
+          getData(2015);
+        } else if(page === "primera-division") {
+          getData(2014);
+        } else if(page === "seriea") {
+          getData(2019);
+        } else if(page === "champions-l") {
+          getData(2001);
+        } else if(page === "favorit") {
+          getSavedTeams();
         }
-      }
-    };
-    xhttp.open("GET", "pages/" + page + ".html", true);
-    xhttp.send();
+      })
+      .catch(error => {
+          console.log(error);
+      })
 }
 
 const navOpt = () => {

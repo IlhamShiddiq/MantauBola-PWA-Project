@@ -34,7 +34,7 @@ const error = error => {
 const getData = id => {
 
     if ('caches' in window) {
-      caches.match(base_url + `competitions/${id}/`).then(response => {
+      caches.match(`${base_url}competitions/${id}/`).then(response => {
         if (response) {
           response.json()
           .then(data => {
