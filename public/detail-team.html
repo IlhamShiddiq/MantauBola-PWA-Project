@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MantauBola | Welcome Guest</title>
+
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Materialie -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="fav-icon.jpg">
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="d-purple" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="#" onclick="back()"><i class="small material-icons" style="display: inline-block; margin-right: 20px;">arrow_back</i></a>
+            <a href="#" class="brand-logo brand-logo-dt" id="logo-container" style="display: inline-block;">MantauBola</a>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <!-- Content -->
+    <div id="body-content-detail">
+        <div class="wrapper-detail">
+            <div class="brand-team center-align">
+                
+            </div>
+            <div class="info-team">
+                <div class="row">
+                    <div class="col xl10 l10 m10 s12 offset-xl1">
+                        <div class="row row-info">
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text">Name</div>
+                                <div class="reg-text" id="name-st">Paris Saint-Germain FC</div>
+                            </div>
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text white-color">Shortname</div>
+                                <div class="reg-text white-color" id="shortname-st">PSG</div>
+                            </div>
+                        </div>
+                        <div class="row row-info">
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text">Alamat</div>
+                                <div class="reg-text" id="address-st">24, rue de Commandant Guibaud Paris 7501</div>
+                            </div>
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text white-color">Nomor Telepon</div>
+                                <div class="reg-text white-color" id="phone-st">+33 (0139) 733467</div>
+                            </div>
+                        </div>
+                        <div class="row row-info">
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text">Warna Club</div>
+                                <div class="reg-text" id="color-st">Red / Blue / White</div>
+                            </div>
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text white-color">Tahun didirikan</div>
+                                <div class="reg-text white-color" id="founded-st">1904</div>
+                            </div>
+                        </div>
+                        <div class="row row-info">
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text">Email</div>
+                                <div class="reg-text" id="email-st">communaute@psg.fr</div>
+                            </div>
+                            <div class="col xl6 l6 m6 s6">
+                                <div class="bold-text white-color">Website</div>
+                                <div class="reg-text white-color" id="web-st"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-squad">
+                <div class="row">
+                    <div class="col xl8 l8 m12 s12 offset-xl2 offset-l2" id="tabel">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Content -->
+
+    <!-- Floating Button -->
+    <div class="floating center-align white-color" id="fab">
+        <i class="small material-icons">save</i>
+    </div>
+
+    <div class="floating floating-hapus center-align white-color" id="fab-hapus">
+        <i class="small material-icons">delete</i>
+    </div>
+    <!-- Akhir Floating Button -->
+
+    <script src="./bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function back() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
