@@ -1,6 +1,6 @@
 # Mantau Bola
 
-Dicoding final submission
+Dicoding final submission, check it out this website [here](https://mantaubola.web.app/)
 
 ## Installing
 
@@ -19,5 +19,3 @@ npm install
 ### Authors
 
 * **Ilham Shiddiq** - [Github](https://github.com/IlhamShiddiq)
-
-Check it out this website [here](https://mantaubola.web.app/)
