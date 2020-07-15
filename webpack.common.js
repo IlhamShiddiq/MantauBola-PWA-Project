@@ -35,27 +35,27 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, 'src/image'),
-                    to: path.resolve(__dirname, 'dist/src/image')
+                    to: path.resolve(__dirname, 'public/src/image')
                 },
                 {
                     from: path.resolve(__dirname, './pages'),
-                    to: path.resolve(__dirname, 'dist/pages')
+                    to: path.resolve(__dirname, 'public/pages')
                 },
                 {
                     from: path.resolve(__dirname, './nav.html'),
-                    to: path.resolve(__dirname, './dist/')
+                    to: path.resolve(__dirname, './public/')
                 },
                 {
                     from: path.resolve(__dirname, './fav-icon.jpg'),
-                    to: path.resolve(__dirname, './dist/')
+                    to: path.resolve(__dirname, './public/')
                 },
                 {
                     from: path.resolve(__dirname, './manifest.json'),
-                    to: path.resolve(__dirname, './dist/')
+                    to: path.resolve(__dirname, './public/')
                 },
                 {
                     from: path.resolve(__dirname, './images/icons'),
-                    to: path.resolve(__dirname, './dist/images/icons')
+                    to: path.resolve(__dirname, './public/images/icons')
                 },
             ],
         }),
