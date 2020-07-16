@@ -7,6 +7,7 @@
     "jquery": "^3.5.1",
     "material-icons": "^0.3.1",
     "materialize-css": "^1.0.0",
+    "snarkdown": "^1.2.2",
     "swiper": "^6.0.2",
     "web-push": "^3.4.4"
   },
